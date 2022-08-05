@@ -1,6 +1,11 @@
-import 'package:commerce/components/categories.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+import 'package:commerce/components/category_title.dart';
+import 'package:commerce/components/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+
+import 'package:commerce/components/categories.dart';
 
 class RootApp extends StatelessWidget {
   const RootApp({Key? key}) : super(key: key);
@@ -60,17 +65,21 @@ class RootApp extends StatelessWidget {
               const Divider(
                 height: 30,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Hot Sales",
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
-                          fontSize: 17,
-                        ),
-                  ),
-                  const Text("See all"),
-                ],
+              const CategoryTitle(
+                title: "Hot Sales",
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                    children: List.generate(5, (index) {
+                  return const ProductCard(
+                    image: "assets/headset1.png",
+                    title: "MacBook Air M1",
+                  );
+                })),
               )
             ],
           ),

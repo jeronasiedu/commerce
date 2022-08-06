@@ -10,7 +10,7 @@ class CategoriesPanel extends StatelessWidget {
   List categories = [
     {"text": "Headset", "image": "assets/headset5.png"},
     {"text": "Laptop", "image": "assets/laptop4.png"},
-    {"text": "Air Max", "image": "assets/shoe5.png"},
+    {"text": "Ear Bud", "image": "assets/earbud4.png"},
   ];
 
   @override

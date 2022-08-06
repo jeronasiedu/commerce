@@ -7,10 +7,12 @@ class ProductCard extends StatelessWidget {
     required this.image,
     required this.title,
     this.color,
+    required this.price,
   }) : super(key: key);
   final String image;
   final String title;
   final Color? color;
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,9 +57,9 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Text(
-                    "\$ 150",
-                    style: TextStyle(
+                  Text(
+                    "\$ $price",
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),

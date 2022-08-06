@@ -19,33 +19,44 @@ class RootApp extends StatefulWidget {
 
 class _RootAppState extends State<RootApp> {
   List products = [
+    {"title": "FiiO Ear Buds", "image": "assets/earbud.png", "price": "136"},
     {
-      "title": "MacBook Air M1",
-      "image": "assets/headset6.png",
-    },
-    {
-      "title": "Premium Headset",
+      "title": "Beats Fit Pro",
       "image": "assets/headset5.png",
       "color": Colors.indigo.withOpacity(0.1),
+      "price": "186"
     },
     {
-      "title": "Premium Headset",
+      "title": "Beats Solo Pro",
       "image": "assets/headset7.png",
       "color": Colors.pinkAccent.withOpacity(0.1),
+      "price": "194"
     },
   ];
   List recentlyViewed = [
     {
-      "name": "MacBook Pro M2",
+      "name": "Microsoft Surface",
       "image": "assets/laptop4.png",
+      "color": Colors.amber.withOpacity(0.1),
+      "price": "357"
     },
     {
-      "name": "MacBook Pro M2",
-      "image": "assets/laptop4.png",
+      "name": "Sony Ear Buds",
+      "image": "assets/earbud4.png",
+      "color": Colors.blue.withOpacity(0.1),
+      "price": "323"
     },
     {
-      "name": "MacBook Pro M2",
-      "image": "assets/laptop4.png",
+      "name": "Audio Technica",
+      "image": "assets/headset1.png",
+      "color": Colors.red.withOpacity(0.1),
+      "price": "470"
+    },
+    {
+      "name": "Hyper X Headphone",
+      "image": "assets/headset6.png",
+      "color": Colors.deepPurple.withOpacity(0.1),
+      "price": "202"
     },
   ];
   int currentIndex = 0;
@@ -102,6 +113,7 @@ class _RootAppState extends State<RootApp> {
                         image: products[index]["image"],
                         title: products[index]["title"],
                         color: products[index]['color'],
+                        price: products[index]['price'],
                       );
                     },
                   ),
@@ -122,7 +134,12 @@ class _RootAppState extends State<RootApp> {
                   scrollDirection: Axis.horizontal,
                   itemCount: recentlyViewed.length,
                   itemBuilder: (context, index) {
-                    return const RecentlyViewedProduct();
+                    return RecentlyViewedProduct(
+                      color: recentlyViewed[index]["color"],
+                      image: recentlyViewed[index]['image'],
+                      name: recentlyViewed[index]['name'],
+                      price: recentlyViewed[index]['price'],
+                    );
                   },
                 ),
               )

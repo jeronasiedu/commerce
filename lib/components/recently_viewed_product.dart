@@ -1,10 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class RecentlyViewedProduct extends StatelessWidget {
   const RecentlyViewedProduct({
     Key? key,
+    required this.color,
+    required this.name,
+    required this.image,
+    required this.price,
   }) : super(key: key);
+  final Color color;
+  final String name;
+  final String image;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +32,12 @@ class RecentlyViewedProduct extends StatelessWidget {
                   width: double.maxFinite,
                   height: 180,
                   decoration: BoxDecoration(
-                    color: Colors.purple.withOpacity(0.1),
+                    color: color,
                   ),
-                  child: Image.asset('assets/laptop4.png'),
+                  child: Image.asset(
+                    image,
+                    width: 200,
+                  ),
                 ),
                 Expanded(
                   child: Padding(
@@ -44,11 +56,11 @@ class RecentlyViewedProduct extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(bottom: 4),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 4),
                                     child: Text(
-                                      "MacBook Pro M2",
-                                      style: TextStyle(
+                                      name,
+                                      style: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -87,7 +99,7 @@ class RecentlyViewedProduct extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "\$128",
+                              "\$$price",
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             SizedBox(

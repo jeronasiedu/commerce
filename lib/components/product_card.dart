@@ -6,9 +6,11 @@ class ProductCard extends StatelessWidget {
     Key? key,
     required this.image,
     required this.title,
+    this.color,
   }) : super(key: key);
   final String image;
   final String title;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,38 +23,21 @@ class ProductCard extends StatelessWidget {
             Container(
               height: 190,
               decoration: BoxDecoration(
-                color: Colors.lightBlueAccent.withOpacity(0.05),
+                color: color ?? Colors.lightBlueAccent.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Column(
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  const Spacer(),
                   Image.asset(
                     image,
                     width: 200,
                   ),
-                  const Spacer(),
-                  Align(
-                    alignment: const Alignment(-1, 1),
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 10, bottom: 10),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 4,
-                        horizontal: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: const Text(
-                        "Free shipping",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  )
+                  const Positioned(
+                    bottom: 0,
+                    left: 0,
+                    child: FreeBadge(),
+                  ),
                 ],
               ),
             ),
@@ -87,6 +72,34 @@ class ProductCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class FreeBadge extends StatelessWidget {
+  const FreeBadge({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 10, bottom: 10),
+      padding: const EdgeInsets.symmetric(
+        vertical: 4,
+        horizontal: 10,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: const Text(
+        "Free shipping",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 13,
         ),
       ),
     );

@@ -17,7 +17,10 @@ class CategoryTitle extends StatelessWidget {
                 fontSize: 17,
               ),
         ),
-        const Text("See all"),
+        TextButton(
+          onPressed: () {},
+          child: const Text("See all"),
+        ),
       ],
     );
   }

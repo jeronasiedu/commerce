@@ -8,9 +8,9 @@ class CategoriesPanel extends StatelessWidget {
   }) : super(key: key);
 
   List categories = [
-    {"text": "Jordan ", "image": "assets/shoe5.png"},
-    {"text": "Nick AirForce", "image": "assets/shoe7.png"},
-    {"text": "Lenovo", "image": "assets/laptop2.png"},
+    {"text": "Headset", "image": "assets/headset5.png"},
+    {"text": "Laptop", "image": "assets/laptop4.png"},
+    {"text": "Air Max", "image": "assets/shoe5.png"},
   ];
 
   @override
